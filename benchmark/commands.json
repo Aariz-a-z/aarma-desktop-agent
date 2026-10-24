@@ -1,0 +1,26 @@
+{
+  "description": "The 20-command voice benchmark. Intent names here are the SPEC names; benchmark/intent_mapping.json translates them onto production names when expectations are built. Nothing in the runtime path reads this file.",
+  "language": "en",
+  "commands": [
+    { "id": 1,  "text": "Hey Asma.",                          "intent": "wake_greeting",     "parameters": {} },
+    { "id": 2,  "text": "Hello Asma.",                        "intent": "wake_greeting",     "parameters": {} },
+    { "id": 3,  "text": "Open Chrome.",                       "intent": "open_application",  "parameters": { "app": "chrome" } },
+    { "id": 4,  "text": "Open YouTube.",                      "intent": "open_website",      "parameters": { "site": "youtube" } },
+    { "id": 5,  "text": "What time is it?",                   "intent": "get_time",          "parameters": {} },
+    { "id": 6,  "text": "What is today's date?",              "intent": "get_date",          "parameters": {} },
+    { "id": 7,  "text": "Open VS Code.",                      "intent": "open_application",  "parameters": { "app": "vs code" } },
+    { "id": 8,  "text": "Take a screenshot.",                 "intent": "take_screenshot",   "parameters": {} },
+    { "id": 9,  "text": "List files in Documents.",           "intent": "list_files",        "parameters": { "path": "Documents" } },
+    { "id": 10, "text": "Help.",                              "intent": "help",              "parameters": {} },
+    { "id": 11, "text": "Open Notepad.",                      "intent": "open_application",  "parameters": { "app": "notepad" } },
+    { "id": 12, "text": "Close Chrome.",                      "intent": "close_application", "parameters": { "app": "chrome" } },
+    { "id": 13, "text": "Search the web for Python tutorials.","intent": "web_search",       "parameters": { "query": "Python tutorials" } },
+    { "id": 14, "text": "Open Google.",                       "intent": "open_website",      "parameters": { "site": "google" } },
+    { "id": 15, "text": "What can you do?",                   "intent": "help",              "parameters": {} },
+    { "id": 16, "text": "Tell me the time.",                  "intent": "get_time",          "parameters": {} },
+    { "id": 17, "text": "Launch Chrome.",                     "intent": "open_application",  "parameters": { "app": "chrome" } },
+    { "id": 18, "text": "Can you open YouTube?",              "intent": "open_website",      "parameters": { "site": "youtube" } },
+    { "id": 19, "text": "Please open Notepad.",               "intent": "open_application",  "parameters": { "app": "notepad" } },
+    { "id": 20, "text": "Hello.",                             "intent": "greeting",          "parameters": {} }
+  ]
+}

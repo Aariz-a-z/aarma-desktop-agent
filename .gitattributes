@@ -1,0 +1,7 @@
+# Normalise line endings so a clone on another platform is not a diff.
+* text=auto eol=lf
+
+# Binary: never touch these.
+*.pt binary
+*.npz binary
+*.png binary

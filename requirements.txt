@@ -1,0 +1,64 @@
+# AARMA — Phase 1 foundation dependencies.
+#
+# The core engine (config, logging, language, security, action registry,
+# database, intent parsing, text interface) runs on the Python standard library
+# alone.  Everything below is for a specific capability, so a stripped-down
+# install still starts and still refuses gracefully.
+#
+#     pip install -r requirements.txt
+
+# Desktop dashboard and first-run setup wizard.
+# Without it, `python main.py --cli` still works.
+PySide6-Essentials>=6.6,<7
+
+# Screen capture for the take_screenshot action.
+# Without it, that action reports that the component is missing.
+Pillow>=10.0
+
+# Recycle-bin deletion for delete_item.
+# Without it, AARMA refuses to delete rather than deleting permanently.
+Send2Trash>=1.8
+
+# --- voice output (Phase 2A) ------------------------------------------------
+# Natural neural voices, in every language AARMA supports. Needs an internet
+# connection. Without it, AARMA falls back to the offline Windows voice and
+# says so rather than silently sounding worse.
+edge-tts>=7.0
+
+# Offline Windows voices (SAPI 5), including the OneCore voice set.
+# Windows only; the engine skips this provider elsewhere.
+pywin32>=306; sys_platform == "win32"
+
+# --- voice input (Phase 2B) -------------------------------------------------
+# Microphone capture. Without it the microphone button reports itself
+# unavailable and text input continues to work.
+sounddevice>=0.4.6
+
+# On-device speech recognition. Audio never leaves the machine. The model
+# itself (~145 MB for the default) downloads once on first use.
+faster-whisper>=1.0
+
+# Audio buffers for capture and recognition.
+numpy>=1.24
+
+# --- wake word (optional) ---------------------------------------------------
+# Stage 1 of the "Hey Aariz" detector. Stage 2 is models/hey_aariz_verifier.pt,
+# trained from scratch for this project. Without this package the assistant
+# still runs; speech.wakeword_cascade simply reports itself unavailable.
+#
+# LICENCE NOTE (local development only): the code and weights are Apache-2.0,
+# but the training corpus behind those weights is distributed from private
+# links and its provenance is UNVERIFIED. That is acceptable for this local
+# build. It is NOT cleared for public redistribution, and a licence audit or a
+# replacement Stage 1 is required before any public release.
+EfficientWord-Net==1.0.5
+
+# --- weather (Phase 3) ------------------------------------------------------
+# Used only by providers.weather, which talks to Open-Meteo: no account, no API
+# key, and nothing but a place name leaves the machine. Without this package
+# the weather actions report themselves unavailable and say why, rather than
+# guessing at a temperature.
+requests>=2.31
+
+# --- development only -------------------------------------------------------
+pytest>=8.0

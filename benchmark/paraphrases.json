@@ -1,0 +1,77 @@
+{
+  "description": "Phrasings that must resolve to the same intent. Spec intent names; benchmark/intent_mapping.json translates them. This is the test of whether the engine understands meaning or only memorised sentences.",
+  "language": "en",
+  "groups": [
+    {
+      "name": "get_time",
+      "intent": "get_time",
+      "parameters": {},
+      "inputs": [
+        "what time is it",
+        "tell me the time",
+        "what's the current time",
+        "can you tell me what time it is",
+        "do you know the time"
+      ]
+    },
+    {
+      "name": "get_date",
+      "intent": "get_date",
+      "parameters": {},
+      "inputs": [
+        "what is today's date",
+        "what's the date",
+        "what day is it today"
+      ]
+    },
+    {
+      "name": "open_application (chrome)",
+      "intent": "open_application",
+      "parameters": { "app": "chrome" },
+      "inputs": [
+        "open chrome",
+        "launch chrome",
+        "start chrome",
+        "could you open chrome for me",
+        "open my browser"
+      ]
+    },
+    {
+      "name": "open_website (youtube)",
+      "intent": "open_website",
+      "parameters": { "site": "youtube" },
+      "inputs": [
+        "open youtube",
+        "go to youtube",
+        "i want to open youtube",
+        "can you open youtube"
+      ]
+    },
+    {
+      "name": "open_application (notepad)",
+      "intent": "open_application",
+      "parameters": { "app": "notepad" },
+      "inputs": [
+        "open notepad",
+        "please launch notepad",
+        "start notepad"
+      ]
+    },
+    {
+      "name": "help",
+      "intent": "help",
+      "parameters": {},
+      "inputs": [
+        "help",
+        "what can you do",
+        "what are your commands"
+      ]
+    }
+  ],
+  "short_controls": [
+    { "input": "stop",     "intent": null, "note": "No production 'stop' intent exists; recorded to show what it resolves to today." },
+    { "input": "cancel",   "intent": null, "note": "Same. 'cancel' is only meaningful while a confirmation is pending." },
+    { "input": "hello",    "intent": "greeting",      "parameters": {} },
+    { "input": "hey asma", "intent": "wake_greeting", "parameters": {} }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "description": "Translates benchmark spec names onto the production names already in the action registry. EXPECTATION-SIDE ONLY: applied when building expected values, never read by the runtime pipeline. Production is not renamed to fit the benchmark.",
+  "intents": {
+    "wake_greeting": "greeting",
+    "open_website": "open_url",
+    "web_search": "search_web"
+  },
+  "parameters": {
+    "app": "name",
+    "site": "url",
+    "path": "location"
+  },
+  "parameter_values": {
+    "description": "Where production expects a different value shape than the spec wrote. open_url takes a BARE SHORTCUT TOKEN (not a domain, not a full URL): actions/browser.py SITE_SHORTCUTS is keyed on 'youtube', 'google', and ai/intent.py _validate_url returns raw.lower() for those keys. Verified by reading the code, not assumed.",
+    "open_url": { "url": { "youtube": "youtube", "google": "google" } }
+  },
+  "notes": {
+    "wake_greeting": "No production wake-acknowledgement intent exists. 'Hey Asma.', 'Hello Asma.' and 'Hello.' all resolve through the same greeting rule, so commands 1, 2 and 20 expect the same intent and the engine does not distinguish them. Reported, not fixed.",
+    "help": "'help' is a META intent handled by ai/planner.py, not a registered action. action.selected is therefore null for it by design, and that is not an ACTION-layer failure.",
+    "greeting": "Also a meta intent, same as above."
+  }
+}

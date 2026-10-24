@@ -1,0 +1,69 @@
+# --- secrets and local environment ------------------------------------------
+.env
+*.key
+*.pem
+secrets.json
+
+# --- AARMA runtime data -------------------------------------------------------
+# Written when AARMA_HOME points into the checkout. Never commit a user's
+# configuration, database, logs or screenshots.
+data/
+*.db
+*.db-wal
+*.db-shm
+logs/
+screenshots/
+config.json
+
+# --- Python -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# --- virtual environments -----------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# --- tooling ------------------------------------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# --- editors and OS -----------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- voice recordings and research scratch ------------------------------------
+# `experiments/` holds the research that produced the shipped detector: vendored
+# dependencies, and ~1,500 recordings of a real person saying their wake word.
+# Voice is biometric data and this repository is public, so the recordings stay
+# on the machine that made them. The shipped model in `models/` is a derived
+# artifact and is committed, because the project does not run without it.
+experiments/
+
+# Corpus manifests record absolute paths from the machine that built them,
+# including the user's account name.
+corpus/
+corpus_manifest.json
+_wh_amb.json
+_wh_pos.json
+benchcache/
+
+# The reference embedding is computed directly from a real person's voice
+# recordings. It cannot be played back, but it is a biometric template, so it
+# stays off a public repository. `hey_aariz_verifier.pt` -- the trained
+# network -- is committed. Enrol locally to generate your own reference:
+#   python tools/enrol_wakeword.py
+models/hey_aariz_reference.npz
